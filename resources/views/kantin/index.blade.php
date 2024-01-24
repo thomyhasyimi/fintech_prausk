@@ -7,8 +7,8 @@
             <h1 class="text-black font-semibold text-3xl">  <span class="text-semibold text-white">{{$user->name}}</span></h1>
             <ul class="flex flex-col justify-center my-3 gap-5 w-full px-2 py-5">
                 <li class=""><a href="/" class="hover:bg-slate-100 transition p-1 rounded">Home</a></li>
-                <li class=""><a href="/add-product" class="hover:bg-slate-100 transition p-1 rounded">Add</a></li>
-                <li class=""></li>
+                <li class=""><a href="/add-product" class="hover:bg-slate-100 transition p-1 rounded">Tambah</a></li>
+                <li class=""><a href="/transaction" class="hover:bg-slate-100 transition p-1 rounded">Transaksi</a></li>
             </ul>
         <div class="absolute bottom-5">
             <button type="submit"><a href="logout" class="text-xl font-medium ml-3 hover:bg-white px-3 py-1 rounded-md border-2">Logout</a></button>
@@ -22,16 +22,16 @@
                         <h2>Jumlah Produk</h2>
                         <p>{{$proto}}</p>
                     </div>
-                    {{-- <div class="border p-3 rounded-md shadow-md">
+                    <div class="border p-3 rounded-md shadow-md">
                         <h2>Jumlah Transaksi</h2>
-                        <p>{{$wallets}}</p>
-                    </div> --}}
+                        <p>{{$transcount}}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="">
+            <div class=" mx-5">
                 <h1 class="ml-5 mb-5 text-xl">Produk</h1>
-                <table class="w-full h-auto">
+                <table class="w-full">
                     <thead>
                         <tr class="">
                             <th class="border-2 border-black">No</th>
@@ -47,14 +47,14 @@
                     <tbody class="">
                         @foreach ($products as $key => $product)    
                             <tr class="gap-2">
-                                <td class="text-center border-2 border-slate-800">{{$key+1}}</td>
-                                <td class="flex jutify-center items-center object-cover border-2 border-slate-800"><img src="{{$product->photo}}" alt="" class="w-16 flex justify-center"></td>
-                                <td class="text-center border-2 border-slate-800">{{$product->name}}</td>
-                                <td class="text-center border-2 border-slate-800">{{$product->desc}}</td>
-                                <td class="text-center border-2 border-slate-800">{{$product->category->name}}</td>
-                                <td class="text-center border-2 border-slate-800">{{$product->stock}}</td>
-                                <td class="text-center border-2 border-slate-800">{{$product->price}}</td>
-                                <td class="border-2 border-slate-800">
+                                <td class="text-center border-2 ">{{$key+1}}</td>
+                                <td class="border-2"><img src="{{$product->photo}}" alt="" class="flex jutify-center items-center object-cover w-20"></td>
+                                <td class="text-center border-2 ">{{$product->name}}</td>
+                                <td class="text-center border-2 ">{{$product->desc}}</td>
+                                <td class="text-center border-2 ">{{$product->category->name}}</td>
+                                <td class="text-center border-2 ">{{$product->stock}}</td>
+                                <td class="text-center border-2 ">{{$product->price}}</td>
+                                <td class="border-2 ">
                                     <div class="flex justify-around items-center">
                                         <a href="edit-product/{{ $product->id }}" class="bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded transition">Edit</a>
                                         <form action="/delete-product/{{ $product->id }}" method="POST">

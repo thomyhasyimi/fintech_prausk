@@ -23,7 +23,7 @@
             @foreach ($pendings as $pending)
                 <tr class="border border-black">
                     <td class="border p-2 text-center border-black">{{ $pending->id }}</td>
-                    <td class="border p-2 text-center border-black">{{ $pending->user->username }}</td>
+                    <td class="border p-2 text-center border-black">{{ $pending->user->name }}</td>
                     <td class="border p-2 text-center border-black">{{ $pending->credit }}</td>
                     <td class="border p-2 text-center border-black">
                         <div class="buttons flex gap-2 justify-center w-full">

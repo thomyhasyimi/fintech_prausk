@@ -16,20 +16,23 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        $wallets = Wallet::where('user_id', auth()->user()->id)->get();
         // $wallets = Wallet::where('user_id', auth()->user()->id)->get();
-        // $credit = $wallets->sum('credit');
-        // $debit = $wallets->sum('debit');
+        $credit = $wallets->sum('credit');
+        $debit = $wallets->sum('debit');
 
         // $saldoUser = $credit - $debit;
 
+        $waletUs = $credit - $debit;
+        $waletUser = $wallets->$waletUs->count();
         $proto = $products->count();
-        return view('kantin', compact('products', 'user', 'proto', 'saldoUser'));
+        return view('kantin', compact('products', 'user', 'proto', 'waletUser'));
     }
 
-    public function transacount() {
-        $wallets = Wallet::get();
-        return view('kantin.index', compact('wallets'));
-    }
+    // public function transacount() {
+    //     $wallets = Wallet::get();
+    //     return view('kantin.index', compact('wallets'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -103,4 +106,8 @@ class ProductController extends Controller
         return view('delete_product', compact('product', 'products'));
     }
 
+    public function transaction() {
+        $transactions = collect(Transaction::get())->sortByDesc('created_at')->groupBy('code');
+        return view('kantin.transaction', compact('transactions'));
+    }
 }

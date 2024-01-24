@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
         ]);
         Product::create([
             'category_id' => 2,
-            'name' => "Es Teh",
-            'photo' => 'https://source.unsplash.com/random/900×900/?esteh',
+            'name' => "Mojito",
+            'photo' => 'https://source.unsplash.com/random/900×900/?mojito',
             'desc' => "Enak Banget",
             'stock' => 25,
             'price' => 1000,

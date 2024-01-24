@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -27,7 +28,14 @@ class UserController extends Controller
         } elseif($user->role == "kantin") {
             $products = Product::get();
             $proto = $products->count();
-            return view('kantin.index', compact('products', 'user', 'proto'));
+
+            // $wallets = Wallet::where('user_id', auth()->user()->id)->get();
+            // $credit = $wallets->sum('credit');
+            // $debit = $wallets->sum('debit');
+            // $waletUser = $credit - $debit;
+            $transaction = Transaction::get();
+            $transcount = $transaction->count();
+            return view('kantin.index', compact('products', 'user', 'proto', 'transcount'));
         } elseif($user->role == "bank"){
             return view('bank.index',compact('user', ));
         }

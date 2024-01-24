@@ -26,14 +26,15 @@ Route::post('/', [UserController::class, 'login']);
 Route::get('/logout', [UserController::class, 'logout']);
 // Route::get('kantin', [ProductController::class, 'index']);
 
-// Product
+// Kantin
 Route::get('/', [ProductController::class, 'transacount']);
 Route::get('add-product', [ProductController::class, 'create']);
 Route::post('add-product/create', [ProductController::class, 'store']);
 Route::get('edit-product/{id}', [ProductController::class, 'edit']);
 Route::put('/put-product/{id}', [ProductController::class, 'update']);
 Route::post('delete-product/{id}', [ProductController::class, 'destroy']);
-// Route::get('/', [ProductController::class, 'index']);
+Route::get('transaction', [ProductController::class, 'transaction']);
+
 
 // Bank
 Route::get('/', [UserController::class, 'index']);

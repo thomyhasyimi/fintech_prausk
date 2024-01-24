@@ -17,6 +17,7 @@
                 <th class="border border-black px-4 py-2">Credit</th>
                 <th class="border border-black px-4 py-2">Debit</th>
                 <th class="border border-black px-4 py-2">Status</th>
+                <th class="border border-black px-4 py-2">Time</th>
 
             </tr>
         </thead>
@@ -41,6 +42,13 @@
                     </td>
                     <td class="border p-2 text-center border-black">
                         {{ $wallet->status }}
+                    </td>
+                    <td class="border p-2 text-center border-black">
+                        @if ($wallet->created_at)
+                            {{ $wallet->created_at }}
+                        @else
+                            -
+                        @endif
                     </td>
                 </tr>
             @endforeach

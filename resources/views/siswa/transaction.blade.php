@@ -18,7 +18,6 @@
                     <th class="border border-black px-4 py-2">Debit</th>
                     <th class="border border-black px-4 py-2">Status</th>
                     <th class="border border-black px-4 py-2">Time</th>
-
                 </tr>
             </thead>
             <tbody>

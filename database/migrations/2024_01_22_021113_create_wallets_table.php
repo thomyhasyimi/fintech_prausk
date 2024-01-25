@@ -17,7 +17,7 @@ return new class extends Migration
             $table->double('debit')->nullable();
             $table->double('credit')->nullable();
             $table->enum('status', ['pending', 'success']);
-            $table->timestamps('d.m.Y');
+            $table->timestamps('');
         });
     }
 
